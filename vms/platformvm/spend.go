@@ -107,7 +107,7 @@ func (vm *VM) stake(
 		}
 		in, ok := inIntf.(avax.TransferableIn)
 		if !ok { // should never happen
-			vm.ctx.Log.Warn("expected input to be avax.TransferableIn but is %T", inIntf)
+			vm.ctx.Log.Warn("expected input to be FUEL.TransferableIn but is %T", inIntf)
 			continue
 		}
 

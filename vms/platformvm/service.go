@@ -1380,7 +1380,7 @@ type ExportAVAXArgs struct {
 // ExportAVAX exports AVAX from the P-Chain to the X-Chain
 // It must be imported on the X-Chain to complete the transfer
 func (service *Service) ExportAVAX(_ *http.Request, args *ExportAVAXArgs, response *api.JSONTxIDChangeAddr) error {
-	service.vm.ctx.Log.Debug("Platform: ExportAVAX called")
+	service.vm.ctx.Log.Debug("Platform: ExportFUEL called")
 
 	if args.Amount == 0 {
 		return errNoAmount
@@ -1461,7 +1461,7 @@ type ImportAVAXArgs struct {
 // ImportAVAX issues a transaction to import AVAX from the X-chain. The AVAX
 // must have already been exported from the X-Chain.
 func (service *Service) ImportAVAX(_ *http.Request, args *ImportAVAXArgs, response *api.JSONTxIDChangeAddr) error {
-	service.vm.ctx.Log.Debug("Platform: ImportAVAX called")
+	service.vm.ctx.Log.Debug("Platform: ImportFUEL called")
 
 	// Parse the sourceCHain
 	chainID, err := service.vm.ctx.BCLookup.Lookup(args.SourceChain)

@@ -24,6 +24,8 @@ const (
 	MainnetAPIURI = "https://api.avax.network"
 	FujiAPIURI    = "https://api.avax-test.network"
 	LocalAPIURI   = "http://localhost:9650"
+	SavannahAPIURI = "https://api.savannah.network"
+	MarulaAPIURI  = "https://api.testnet.savannah.network"
 
 	fetchLimit = 1024
 )

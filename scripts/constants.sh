@@ -13,7 +13,7 @@ coreth_path="$GOPATH/pkg/mod/github.com/ava-labs/coreth@$coreth_version"
 
 # Where AvalancheGo binary goes
 build_dir="$AVALANCHE_PATH/build"
-avalanchego_path="$build_dir/avalanchego"
+avalanchego_path="$build_dir/savannahnode"
 plugin_dir="$build_dir/plugins"
 evm_path="$plugin_dir/evm"
 

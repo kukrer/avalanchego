@@ -18,7 +18,7 @@ const (
 	DenaliID  uint32 = 3
 	EverestID uint32 = 4
 	FujiID    uint32 = 5
-	SavannahID unit32 = 6
+	SavannahID uint32 = 6
 	MarulaID uint32 = 7
 
 	TestnetID  uint32 = FujiID

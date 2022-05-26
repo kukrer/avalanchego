@@ -16,7 +16,7 @@ import (
 
 var (
 	errAssetIDMismatch = errors.New("asset IDs in the input don't match the utxo")
-	errWrongAssetID    = errors.New("asset ID must be AVAX in the atomic tx")
+	errWrongAssetID    = errors.New("asset ID must be FUEL in the atomic tx")
 	errMissingUTXO     = errors.New("missing utxo")
 	errUnknownTx       = errors.New("transaction is unknown")
 	errRejectedTx      = errors.New("transaction is rejected")

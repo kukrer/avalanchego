@@ -33,6 +33,14 @@ func TestValidateConfig(t *testing.T) {
 			networkID: 5,
 			config:    &FujiConfig,
 		},
+		"savannah": {
+			networkID: 6,
+			config:    &SavannahConfig,
+		},
+		"marula": {
+			networkID: 7,
+			config:    &MarulaConfig,
+		},
 		"local": {
 			networkID: 12345,
 			config:    &LocalConfig,
