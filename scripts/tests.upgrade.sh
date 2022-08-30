@@ -25,31 +25,31 @@ fi
 
 #################################
 # download avalanchego
-# https://github.com/ava-labs/avalanchego/releases
+# https://github.com/kukrer/savannahnode/releases
 GOARCH=$(go env GOARCH)
 GOOS=$(go env GOOS)
-DOWNLOAD_URL=https://github.com/ava-labs/avalanchego/releases/download/v${VERSION}/avalanchego-linux-${GOARCH}-v${VERSION}.tar.gz
+DOWNLOAD_URL=https://github.com/kukrer/savannahnode/releases/download/v${VERSION}/savannahnode-linux-${GOARCH}-v${VERSION}.tar.gz
 DOWNLOAD_PATH=/tmp/avalanchego.tar.gz
 if [[ ${GOOS} == "darwin" ]]; then
-  DOWNLOAD_URL=https://github.com/ava-labs/avalanchego/releases/download/v${VERSION}/avalanchego-macos-v${VERSION}.zip
-  DOWNLOAD_PATH=/tmp/avalanchego.zip
+  DOWNLOAD_URL=https://github.com/kukrer/savannahnode/releases/download/v${VERSION}/savannahnode-macos-v${VERSION}.zip
+  DOWNLOAD_PATH=/tmp/savannahnode.zip
 fi
 
 rm -f ${DOWNLOAD_PATH}
-rm -rf /tmp/avalanchego-v${VERSION}
-rm -rf /tmp/avalanchego-build
+rm -rf /tmp/savannahnode-v${VERSION}
+rm -rf /tmp/savannahnode-build
 
-echo "downloading avalanchego ${VERSION} at ${DOWNLOAD_URL}"
+echo "downloading savannahnode ${VERSION} at ${DOWNLOAD_URL}"
 curl -L ${DOWNLOAD_URL} -o ${DOWNLOAD_PATH}
 
-echo "extracting downloaded avalanchego"
+echo "extracting downloaded savannahnode"
 if [[ ${GOOS} == "linux" ]]; then
   tar xzvf ${DOWNLOAD_PATH} -C /tmp
 elif [[ ${GOOS} == "darwin" ]]; then
-  unzip ${DOWNLOAD_PATH} -d /tmp/avalanchego-build
-  mv /tmp/avalanchego-build/build /tmp/avalanchego-v${VERSION}
+  unzip ${DOWNLOAD_PATH} -d /tmp/savannahnode-build
+  mv /tmp/savannahnode-build/build /tmp/savannahnode-v${VERSION}
 fi
-find /tmp/avalanchego-v${VERSION}
+find /tmp/savannahnode-v${VERSION}
 
 #################################
 # download avalanche-network-runner

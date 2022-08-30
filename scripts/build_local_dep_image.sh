@@ -4,24 +4,24 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-echo "Building docker image based off of most recent local commits of avalanchego and coreth"
+echo "Building docker image based off of most recent local commits of savannahnode and coreth"
 
-AVALANCHE_REMOTE="git@github.com:ava-labs/avalanchego.git"
-CORETH_REMOTE="git@github.com:ava-labs/coreth.git"
-DOCKERHUB_REPO="avaplatform/avalanchego"
+AVALANCHE_REMOTE="git@github.com:kukrer/savannahnode.git"
+CORETH_REMOTE="git@github.com:kukrer/coreth.git"
+DOCKERHUB_REPO="savannahlabs/savannahnode"
 
 DOCKER="${DOCKER:-docker}"
 SCRIPT_DIRPATH=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ROOT_DIRPATH="$(dirname "${SCRIPT_DIRPATH}")"
 
-AVA_LABS_RELATIVE_PATH="src/github.com/ava-labs"
+AVA_LABS_RELATIVE_PATH="src/github.com/kukrer"
 EXISTING_GOPATH="$GOPATH"
 
 export GOPATH="$SCRIPT_DIRPATH/.build_image_gopath"
-WORKPREFIX="$GOPATH/src/github.com/ava-labs"
+WORKPREFIX="$GOPATH/src/github.com/kukrer"
 
 # Clone the remotes and checkout the desired branch/commits
-AVALANCHE_CLONE="$WORKPREFIX/avalanchego"
+AVALANCHE_CLONE="$WORKPREFIX/savannahnode"
 CORETH_CLONE="$WORKPREFIX/coreth"
 
 # Replace the WORKPREFIX directory
@@ -29,7 +29,7 @@ rm -rf "$WORKPREFIX"
 mkdir -p "$WORKPREFIX"
 
 
-AVALANCHE_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/avalanchego" rev-parse --short HEAD)"
+AVALANCHE_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/savannahnode" rev-parse --short HEAD)"
 CORETH_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/coreth" rev-parse --short HEAD)"
 
 git config --global credential.helper cache

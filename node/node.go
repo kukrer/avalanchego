@@ -21,7 +21,7 @@ import (
 
 	"go.uber.org/zap"
 
-	coreth "github.com/ava-labs/coreth/plugin/evm"
+	coreth "github.com/kukrer/coreth/plugin/evm"
 
 	"github.com/kukrer/savannahnode/api/admin"
 	"github.com/kukrer/savannahnode/api/auth"
