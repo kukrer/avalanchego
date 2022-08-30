@@ -10,6 +10,7 @@ import (
 	"github.com/kukrer/savannahnode/snow/consensus/avalanche"
 	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
 	"github.com/kukrer/savannahnode/snow/engine/common"
+)
 
 // issuer issues [vtx] into consensus after its dependencies are met.
 type issuer struct {

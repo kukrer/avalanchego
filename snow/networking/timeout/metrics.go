@@ -17,6 +17,7 @@ import (
 	"github.com/kukrer/savannahnode/snow"
 	"github.com/kukrer/savannahnode/utils/metric"
 	"github.com/kukrer/savannahnode/utils/wrappers"
+)
 
 const (
 	defaultRequestHelpMsg = "time (in ns) spent waiting for a response to this message"
