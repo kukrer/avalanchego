@@ -92,7 +92,7 @@ func (db *Database) Put(key, value []byte) error {
 	if db.mem == nil {
 		return database.ErrClosed
 	}
-	db.mem[string(key)] = valueDelete{value: value}
+	db.mem[string(key)] = valueDelete{value: utils.CopyBytes(value)}
 	return nil
 }
 
@@ -149,16 +149,6 @@ func (db *Database) NewIteratorWithStartAndPrefix(start, prefix []byte) database
 		keys:     keys,
 		values:   values,
 	}
-}
-
-func (db *Database) Stat(stat string) (string, error) {
-	db.lock.RLock()
-	defer db.lock.RUnlock()
-
-	if db.mem == nil {
-		return "", database.ErrClosed
-	}
-	return db.db.Stat(stat)
 }
 
 func (db *Database) Compact(start, limit []byte) error {
@@ -280,6 +270,16 @@ func (db *Database) isClosed() bool {
 	defer db.lock.RUnlock()
 
 	return db.db == nil
+}
+
+func (db *Database) HealthCheck() (interface{}, error) {
+	db.lock.RLock()
+	defer db.lock.RUnlock()
+
+	if db.mem == nil {
+		return nil, database.ErrClosed
+	}
+	return db.db.HealthCheck()
 }
 
 type keyValue struct {

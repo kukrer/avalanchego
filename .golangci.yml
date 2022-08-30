@@ -15,8 +15,8 @@ linters:
   disable-all: true
   enable:
     - asciicheck
-    - bodyclose
     - deadcode
+    - depguard
     - errcheck
     - exportloopref
     - goconst
@@ -41,6 +41,7 @@ linters:
     - unconvert
     - whitespace
     - staticcheck
+    # - bodyclose
     # - structcheck
     # - lll
     # - gomnd
@@ -52,7 +53,7 @@ linters:
 
 linters-settings:
   staticcheck:
-    go: "1.17"
+    go: "1.18"
     # https://staticcheck.io/docs/options#checks
     checks:
       - "all"
@@ -62,3 +63,8 @@ linters-settings:
   gosec:
     excludes:
       - G107 # https://securego.io/docs/rules/g107.html
+  depguard:
+    list-type: blacklist
+    packages-with-error-message:
+      - io/ioutil: 'io/ioutil is deprecated. Use package io or os instead.'
+    include-go-root: true

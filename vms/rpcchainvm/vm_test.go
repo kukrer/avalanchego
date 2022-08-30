@@ -10,9 +10,14 @@ import (
 	"io"
 	"net"
 	"net/http"
+	"os"
+	"reflect"
+	"sort"
 	"testing"
 
-	j "encoding/json"
+	stdjson "encoding/json"
+
+	"github.com/golang/mock/gomock"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
@@ -22,33 +27,73 @@ import (
 	hclog "github.com/hashicorp/go-hclog"
 	plugin "github.com/hashicorp/go-plugin"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/ava-labs/avalanchego/snow/engine/common"
+	"github.com/ava-labs/avalanchego/utils/json"
 	"github.com/ava-labs/avalanchego/vms/rpcchainvm/ghttp"
 	"github.com/ava-labs/avalanchego/vms/rpcchainvm/grpcutils"
 
 	httppb "github.com/ava-labs/avalanchego/proto/pb/http"
 	vmpb "github.com/ava-labs/avalanchego/proto/pb/vm"
-	cjson "github.com/ava-labs/avalanchego/utils/json"
 )
+
+var (
+	_ plugin.Plugin     = &testVMPlugin{}
+	_ plugin.GRPCPlugin = &testVMPlugin{}
+)
+
+// Test_VMServerInterface ensures that the RPCs methods defined by VMServer
+// interface are implemented.
+func Test_VMServerInterface(t *testing.T) {
+	var wantMethods, gotMethods []string
+	pb := reflect.TypeOf((*vmpb.VMServer)(nil)).Elem()
+	for i := 0; i < pb.NumMethod()-1; i++ {
+		wantMethods = append(wantMethods, pb.Method(i).Name)
+	}
+	sort.Strings(wantMethods)
+
+	impl := reflect.TypeOf(&VMServer{})
+	for i := 0; i < impl.NumMethod(); i++ {
+		gotMethods = append(gotMethods, impl.Method(i).Name)
+	}
+	sort.Strings(gotMethods)
+
+	if !reflect.DeepEqual(gotMethods, wantMethods) {
+		t.Errorf("\ngot: %q\nwant: %q", gotMethods, wantMethods)
+	}
+}
+
+// chainVMTestPlugin creates the server plugin needed for the test
+func chainVMTestPlugin(t *testing.T, _ bool) (plugin.Plugin, *gomock.Controller) {
+	// test key is "chainVMTest"
+	ctrl := gomock.NewController(t)
+
+	return NewTestVM(&TestSubnetVM{
+		logger: hclog.New(&hclog.LoggerOptions{
+			Level:      hclog.Trace,
+			Output:     os.Stderr,
+			JSONFormat: true,
+		}),
+	}), ctrl
+}
 
 // Test_VMCreateHandlers tests the Handle and HandleSimple RPCs by creating a plugin and
 // serving the handlers exposed by the subnet. The test then will exercise the service
 // as a regression test.
 func Test_VMCreateHandlers(t *testing.T) {
-	assert := assert.New(t)
+	require := require.New(t)
 	pr := &pingRequest{
 		Version: "2.0",
 		Method:  "subnet.ping",
 		Params:  []string{},
 		ID:      "1",
 	}
-	pingBody, err := j.Marshal(pr)
-	assert.NoError(err)
+	pingBody, err := stdjson.Marshal(pr)
+	require.NoError(err)
 
 	scenarios := []struct {
 		name    string
@@ -61,50 +106,48 @@ func Test_VMCreateHandlers(t *testing.T) {
 	}
 	for _, scenario := range scenarios {
 		t.Run(scenario.name, func(t *testing.T) {
-			process := helperProcess("vm")
+			process := helperProcess(chainVMTestKey)
 			c := plugin.NewClient(&plugin.ClientConfig{
 				Cmd:              process,
 				HandshakeConfig:  TestHandshake,
-				Plugins:          TestPluginMap,
+				Plugins:          TestClientPluginMap,
 				AllowedProtocols: []plugin.Protocol{plugin.ProtocolGRPC},
 			})
 			defer c.Kill()
 
 			_, err := c.Start()
-			assert.NoErrorf(err, "failed to start plugin: %v", err)
+			require.NoErrorf(err, "failed to start plugin: %v", err)
 
 			if v := c.Protocol(); v != plugin.ProtocolGRPC {
-				assert.NoErrorf(err, "invalid protocol %q: :%v", c.Protocol(), err)
+				require.NoErrorf(err, "invalid protocol %q: :%v", c.Protocol(), err)
 			}
 
 			// Get the plugin client.
 			client, err := c.Client()
-			assert.NoErrorf(err, "failed to get plugin client: %v", err)
+			require.NoErrorf(err, "failed to get plugin client: %v", err)
 
 			// Grab the vm implementation.
-			raw, err := client.Dispense("vm")
-			assert.NoErrorf(err, "failed to dispense plugin: %v", err)
+			raw, err := client.Dispense(chainVMTestKey)
+			require.NoErrorf(err, "failed to dispense plugin: %v", err)
 
 			// Get vm client.
 			vm, ok := raw.(*TestVMClient)
-			if !ok {
-				assert.NoError(err)
-			}
+			require.True(ok)
 
 			// Get the handlers exposed by the subnet vm.
 			handlers, err := vm.CreateHandlers()
-			assert.NoErrorf(err, "failed to get handlers: %v", err)
+			require.NoErrorf(err, "failed to get handlers: %v", err)
 
 			r := mux.NewRouter()
 			for ep, handler := range handlers {
 				r.Handle(ep, handler.Handler)
 			}
 			listener, err := net.Listen("tcp", "localhost:0")
-			assert.NoErrorf(err, "failed to create listener: %v", err)
+			require.NoErrorf(err, "failed to create listener: %v", err)
 
 			go func() {
 				err := http.Serve(listener, r)
-				assert.NoErrorf(err, "failed to serve HTTP: %v", err)
+				require.NoErrorf(err, "failed to serve HTTP: %v", err)
 			}()
 
 			target := listener.Addr().String()
@@ -113,14 +156,14 @@ func Test_VMCreateHandlers(t *testing.T) {
 				switch endpoint {
 				case "/rpc":
 					err := testHTTPPingRequest(target, endpoint, scenario.payload)
-					assert.NoErrorf(err, "%s rpc ping failed: %v", endpoint, err)
+					require.NoErrorf(err, "%s rpc ping failed: %v", endpoint, err)
 
 				case "/ws":
 					// expected number of msg echos to receive from websocket server.
 					// This test is sanity for conn hijack and server push.
 					expectedMsgCount := 5
 					err := testWebsocketEchoRequest(target, endpoint, expectedMsgCount, scenario.payload)
-					assert.NoErrorf(err, "%s websocket echo failed: %v", endpoint, err)
+					require.NoErrorf(err, "%s websocket echo failed: %v", endpoint, err)
 				default:
 					t.Fatal("unknown handler")
 				}
@@ -147,7 +190,7 @@ func testHTTPPingRequest(target, endpoint string, payload []byte) error {
 		return err
 	}
 	var ping testResult
-	err = j.Unmarshal(pb, &ping)
+	err = stdjson.Unmarshal(pb, &ping)
 	if err != nil {
 		return err
 	}
@@ -160,7 +203,7 @@ func testHTTPPingRequest(target, endpoint string, payload []byte) error {
 
 func testWebsocketEchoRequest(target, endpoint string, expectedMsgCount int, payload []byte) error {
 	dialTarget := fmt.Sprintf("ws://%s%s", target, endpoint)
-	cli, _, err := websocket.DefaultDialer.Dial(dialTarget, nil) //nolint
+	cli, _, err := websocket.DefaultDialer.Dial(dialTarget, nil)
 	if err != nil {
 		return err
 	}
@@ -274,6 +317,24 @@ func (vm *TestVMClient) CreateHandlers() (map[string]*common.HTTPHandler, error)
 	return handlers, nil
 }
 
+type testVMPlugin struct {
+	plugin.NetRPCUnsupportedPlugin
+	vm TestVM
+}
+
+func NewTestVM(vm *TestSubnetVM) plugin.Plugin {
+	return &testVMPlugin{vm: vm}
+}
+
+func (p *testVMPlugin) GRPCServer(_ *plugin.GRPCBroker, s *grpc.Server) error {
+	vmpb.RegisterVMServer(s, NewTestServer(p.vm))
+	return nil
+}
+
+func (p *testVMPlugin) GRPCClient(_ context.Context, _ *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
+	return NewTestClient(vmpb.NewVMClient(c)), nil
+}
+
 type TestSubnetVM struct {
 	logger hclog.Logger
 }
@@ -320,8 +381,8 @@ func (p *PingService) Ping(_ *http.Request, _ *struct{}, reply *PingReply) (err 
 
 func getTestRPCServer() (*gorillarpc.Server, error) {
 	server := gorillarpc.NewServer()
-	server.RegisterCodec(cjson.NewCodec(), "application/json")
-	server.RegisterCodec(cjson.NewCodec(), "application/json;charset=UTF-8")
+	server.RegisterCodec(json.NewCodec(), "application/json")
+	server.RegisterCodec(json.NewCodec(), "application/json;charset=UTF-8")
 	if err := server.RegisterService(&PingService{}, "subnet"); err != nil {
 		return nil, fmt.Errorf("failed to create rpc server %v", err)
 	}

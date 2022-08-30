@@ -31,6 +31,9 @@ const (
 	AppBytes                         // Used at application level
 	VMMessage                        // Used internally
 	Uptime                           // Used for Pong
+	SummaryBytes                     // Used for state sync
+	SummaryHeights                   // Used for state sync
+	SummaryIDs                       // Used for state sync
 	VersionStruct                    // Used internally
 )
 
@@ -39,40 +42,26 @@ func (f Field) Packer() func(*wrappers.Packer, interface{}) {
 	switch f {
 	case VersionStr:
 		return wrappers.TryPackStr
-	case NetworkID:
+	case NetworkID, NodeID, RequestID:
 		return wrappers.TryPackInt
-	case NodeID:
-		return wrappers.TryPackInt
-	case MyTime:
+	case MyTime, Deadline, VersionTime:
 		return wrappers.TryPackLong
 	case IP:
 		return wrappers.TryPackIP
-	case ChainID: // TODO: This will be shortened to use a modified varint spec
+	case ChainID, ContainerID: // TODO: This will be shortened to use a modified varint spec
 		return wrappers.TryPackHash
-	case RequestID:
-		return wrappers.TryPackInt
-	case Deadline:
-		return wrappers.TryPackLong
-	case ContainerID:
-		return wrappers.TryPackHash
-	case ContainerBytes:
+	case ContainerBytes, AppBytes, SigBytes, SummaryBytes:
 		return wrappers.TryPackBytes
-	case ContainerIDs:
+	case ContainerIDs, TrackedSubnets, SummaryIDs:
 		return wrappers.TryPackHashes
 	case MultiContainerBytes:
 		return wrappers.TryPack2DBytes
-	case AppBytes:
-		return wrappers.TryPackBytes
-	case SigBytes:
-		return wrappers.TryPackBytes
-	case VersionTime:
-		return wrappers.TryPackLong
 	case Peers:
-		return wrappers.TryPackIPCertList
-	case TrackedSubnets:
-		return wrappers.TryPackHashes
+		return wrappers.TryPackClaimedIPPortList
 	case Uptime:
 		return wrappers.TryPackByte
+	case SummaryHeights:
+		return wrappers.TryPackUint64Slice
 	default:
 		return nil
 	}
@@ -83,40 +72,26 @@ func (f Field) Unpacker() func(*wrappers.Packer) interface{} {
 	switch f {
 	case VersionStr:
 		return wrappers.TryUnpackStr
-	case NetworkID:
+	case NetworkID, NodeID, RequestID:
 		return wrappers.TryUnpackInt
-	case NodeID:
-		return wrappers.TryUnpackInt
-	case MyTime:
+	case MyTime, Deadline, VersionTime:
 		return wrappers.TryUnpackLong
 	case IP:
 		return wrappers.TryUnpackIP
-	case ChainID: // TODO: This will be shortened to use a modified varint spec
+	case ChainID, ContainerID: // TODO: This will be shortened to use a modified varint spec
 		return wrappers.TryUnpackHash
-	case RequestID:
-		return wrappers.TryUnpackInt
-	case Deadline:
-		return wrappers.TryUnpackLong
-	case ContainerID:
-		return wrappers.TryUnpackHash
-	case ContainerBytes:
+	case ContainerBytes, AppBytes, SigBytes, SummaryBytes:
 		return wrappers.TryUnpackBytes
-	case ContainerIDs:
+	case ContainerIDs, TrackedSubnets, SummaryIDs:
 		return wrappers.TryUnpackHashes
 	case MultiContainerBytes:
 		return wrappers.TryUnpack2DBytes
-	case AppBytes:
-		return wrappers.TryUnpackBytes
-	case SigBytes:
-		return wrappers.TryUnpackBytes
-	case VersionTime:
-		return wrappers.TryUnpackLong
 	case Peers:
-		return wrappers.TryUnpackIPCertList
-	case TrackedSubnets:
-		return wrappers.TryUnpackHashes
+		return wrappers.TryUnpackClaimedIPPortList
 	case Uptime:
 		return wrappers.TryUnpackByte
+	case SummaryHeights:
+		return wrappers.TryUnpackUint64Slice
 	default:
 		return nil
 	}
@@ -162,6 +137,12 @@ func (f Field) String() string {
 		return "VMMessage"
 	case Uptime:
 		return "Uptime"
+	case SummaryBytes:
+		return "Summary"
+	case SummaryHeights:
+		return "SummaryHeights"
+	case SummaryIDs:
+		return "SummaryIDs"
 	case VersionStruct:
 		return "VersionStruct"
 	default:

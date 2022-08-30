@@ -8,6 +8,7 @@ import (
 
 	"github.com/ava-labs/avalanchego/database"
 	"github.com/ava-labs/avalanchego/database/nodb"
+	"github.com/ava-labs/avalanchego/utils"
 	"github.com/ava-labs/avalanchego/utils/hashing"
 )
 
@@ -165,16 +166,6 @@ func (db *Database) NewIteratorWithStartAndPrefix(start, prefix []byte) database
 	return it
 }
 
-func (db *Database) Stat(stat string) (string, error) {
-	db.lock.RLock()
-	defer db.lock.RUnlock()
-
-	if db.db == nil {
-		return "", database.ErrClosed
-	}
-	return db.db.Stat(stat)
-}
-
 func (db *Database) Compact(start, limit []byte) error {
 	db.lock.RLock()
 	defer db.lock.RUnlock()
@@ -201,6 +192,16 @@ func (db *Database) isClosed() bool {
 	defer db.lock.RUnlock()
 
 	return db.db == nil
+}
+
+func (db *Database) HealthCheck() (interface{}, error) {
+	db.lock.RLock()
+	defer db.lock.RUnlock()
+
+	if db.db == nil {
+		return nil, database.ErrClosed
+	}
+	return db.db.HealthCheck()
 }
 
 // Return a copy of [key], prepended with this db's prefix.
@@ -244,11 +245,12 @@ type batch struct {
 // Assumes that it is OK for the argument to b.Batch.Put
 // to be modified after b.Batch.Put returns
 // [key] may be modified after this method returns.
-// [value] may not be modified after this method returns.
+// [value] may be modified after this method returns.
 func (b *batch) Put(key, value []byte) error {
 	prefixedKey := b.db.prefix(key)
-	b.writes = append(b.writes, keyValue{prefixedKey, value, false})
-	return b.Batch.Put(prefixedKey, value)
+	copiedValue := utils.CopyBytes(value)
+	b.writes = append(b.writes, keyValue{prefixedKey, copiedValue, false})
+	return b.Batch.Put(prefixedKey, copiedValue)
 }
 
 // Assumes that it is OK for the argument to b.Batch.Delete
@@ -293,8 +295,6 @@ func (b *batch) Reset() {
 // Replay replays the batch contents.
 // Assumes it's safe to modify the key argument to w.Delete and w.Put
 // after those methods return.
-// Assumes it's not safe to modify the value argument to w.Put after calling that method.
-// Assumes [keyvalue.value] will not be modified because we assume that in batch.Put.
 func (b *batch) Replay(w database.KeyValueWriterDeleter) error {
 	for _, keyvalue := range b.writes {
 		keyWithoutPrefix := keyvalue.key[len(b.db.dbPrefix):]

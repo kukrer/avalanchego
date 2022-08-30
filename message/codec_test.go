@@ -11,58 +11,58 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/ava-labs/avalanchego/ids"
 	"github.com/ava-labs/avalanchego/staking"
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/ava-labs/avalanchego/utils/ips"
 	"github.com/ava-labs/avalanchego/utils/units"
 )
 
 func TestCodecPackInvalidOp(t *testing.T) {
 	codec, err := NewCodecWithMemoryPool("", prometheus.NewRegistry(), 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	_, err = codec.Pack(math.MaxUint8, make(map[Field]interface{}), false, false)
-	assert.Error(t, err)
+	require.Error(t, err)
 
 	_, err = codec.Pack(math.MaxUint8, make(map[Field]interface{}), true, false)
-	assert.Error(t, err)
+	require.Error(t, err)
 }
 
 func TestCodecPackMissingField(t *testing.T) {
 	codec, err := NewCodecWithMemoryPool("", prometheus.NewRegistry(), 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	_, err = codec.Pack(Get, make(map[Field]interface{}), false, false)
-	assert.Error(t, err)
+	require.Error(t, err)
 
 	_, err = codec.Pack(Get, make(map[Field]interface{}), true, false)
-	assert.Error(t, err)
+	require.Error(t, err)
 }
 
 func TestCodecParseInvalidOp(t *testing.T) {
 	codec, err := NewCodecWithMemoryPool("", prometheus.NewRegistry(), 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	_, err = codec.Parse([]byte{math.MaxUint8}, dummyNodeID, dummyOnFinishedHandling)
-	assert.Error(t, err)
+	require.Error(t, err)
 }
 
 func TestCodecParseExtraSpace(t *testing.T) {
 	codec, err := NewCodecWithMemoryPool("", prometheus.NewRegistry(), 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	_, err = codec.Parse([]byte{byte(Ping), 0x00, 0x00}, dummyNodeID, dummyOnFinishedHandling)
-	assert.Error(t, err)
+	require.Error(t, err)
 
 	_, err = codec.Parse([]byte{byte(Ping), 0x00, 0x01}, dummyNodeID, dummyOnFinishedHandling)
-	assert.Error(t, err)
+	require.Error(t, err)
 }
 
 func TestDeadlineOverride(t *testing.T) {
 	c, err := NewCodecWithMemoryPool("", prometheus.NewRegistry(), 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	id := ids.GenerateTestID()
 	m := inboundMessage{
@@ -77,25 +77,25 @@ func TestDeadlineOverride(t *testing.T) {
 	}
 
 	packedIntf, err := c.Pack(m.op, m.fields, m.op.Compressible(), false)
-	assert.NoError(t, err, "failed to pack on operation %s", m.op)
+	require.NoError(t, err, "failed to pack on operation %s", m.op)
 
 	unpackedIntf, err := c.Parse(packedIntf.Bytes(), dummyNodeID, dummyOnFinishedHandling)
-	assert.NoError(t, err, "failed to parse w/ compression on operation %s", m.op)
+	require.NoError(t, err, "failed to parse w/ compression on operation %s", m.op)
 
 	unpacked := unpackedIntf.(*inboundMessage)
-	assert.NotEqual(t, unpacked.ExpirationTime(), time.Now().Add(1337*time.Hour))
-	assert.True(t, time.Since(unpacked.ExpirationTime()) <= 10*time.Second)
+	require.NotEqual(t, unpacked.ExpirationTime(), time.Now().Add(1337*time.Hour))
+	require.True(t, time.Since(unpacked.ExpirationTime()) <= 10*time.Second)
 }
 
 // Test packing and then parsing messages
 // when using a gzip compressor
 func TestCodecPackParseGzip(t *testing.T) {
 	c, err := NewCodecWithMemoryPool("", prometheus.DefaultRegisterer, 2*units.MiB, 10*time.Second)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	id := ids.GenerateTestID()
 
 	tlsCert, err := staking.NewTLSCert()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	cert := tlsCert.Leaf
 
 	msgs := []inboundMessage{
@@ -105,7 +105,7 @@ func TestCodecPackParseGzip(t *testing.T) {
 				NetworkID:      uint32(0),
 				NodeID:         uint32(1337),
 				MyTime:         uint64(time.Now().Unix()),
-				IP:             utils.IPDesc{IP: net.IPv4(1, 2, 3, 4)},
+				IP:             ips.IPPort{IP: net.IPv4(1, 2, 3, 4)},
 				VersionStr:     "v1.2.3",
 				VersionTime:    uint64(time.Now().Unix()),
 				SigBytes:       []byte{'y', 'e', 'e', 't'},
@@ -115,11 +115,11 @@ func TestCodecPackParseGzip(t *testing.T) {
 		{
 			op: PeerList,
 			fields: map[Field]interface{}{
-				Peers: []utils.IPCertDesc{
+				Peers: []ips.ClaimedIPPort{
 					{
 						Cert:      cert,
-						IPDesc:    utils.IPDesc{IP: net.IPv4(1, 2, 3, 4)},
-						Time:      uint64(time.Now().Unix()),
+						IPPort:    ips.IPPort{IP: net.IPv4(1, 2, 3, 4)},
+						Timestamp: uint64(time.Now().Unix()),
 						Signature: make([]byte, 65),
 					},
 				},
@@ -221,16 +221,25 @@ func TestCodecPackParseGzip(t *testing.T) {
 				ContainerIDs: [][]byte{id[:]},
 			},
 		},
+		{
+			op: ChitsV2,
+			fields: map[Field]interface{}{
+				ChainID:      id[:],
+				RequestID:    uint32(1337),
+				ContainerIDs: [][]byte{id[:]},
+				ContainerID:  id[:],
+			},
+		},
 	}
 	for _, m := range msgs {
 		packedIntf, err := c.Pack(m.op, m.fields, m.op.Compressible(), false)
-		assert.NoError(t, err, "failed to pack on operation %s", m.op)
+		require.NoError(t, err, "failed to pack on operation %s", m.op)
 
 		unpackedIntf, err := c.Parse(packedIntf.Bytes(), dummyNodeID, dummyOnFinishedHandling)
-		assert.NoError(t, err, "failed to parse w/ compression on operation %s", m.op)
+		require.NoError(t, err, "failed to parse w/ compression on operation %s", m.op)
 
 		unpacked := unpackedIntf.(*inboundMessage)
 
-		assert.EqualValues(t, len(m.fields), len(unpacked.fields))
+		require.EqualValues(t, len(m.fields), len(unpacked.fields))
 	}
 }
