@@ -6,8 +6,8 @@ package tracker
 import (
 	"sync"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/version"
 )
 
 var _ Startup = &startup{}

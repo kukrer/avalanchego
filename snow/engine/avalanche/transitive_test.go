@@ -13,22 +13,22 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowball"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/bootstrap"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/engine/common/tracker"
-	"github.com/ava-labs/avalanchego/snow/validators"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/avalanche"
+	"github.com/kukrer/savannahnode/snow/consensus/snowball"
+	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
+	"github.com/kukrer/savannahnode/snow/engine/avalanche/bootstrap"
+	"github.com/kukrer/savannahnode/snow/engine/avalanche/vertex"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/snow/engine/common/tracker"
+	"github.com/kukrer/savannahnode/snow/validators"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/wrappers"
+	"github.com/kukrer/savannahnode/version"
 
-	avagetter "github.com/ava-labs/avalanchego/snow/engine/avalanche/getter"
+	avagetter "github.com/kukrer/savannahnode/snow/engine/avalanche/getter"
 )
 
 var (

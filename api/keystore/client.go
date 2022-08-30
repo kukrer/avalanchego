@@ -6,9 +6,9 @@ package keystore
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/utils/rpc"
+	"github.com/kukrer/savannahnode/api"
+	"github.com/kukrer/savannahnode/utils/formatting"
+	"github.com/kukrer/savannahnode/utils/rpc"
 )
 
 var _ Client = &client{}

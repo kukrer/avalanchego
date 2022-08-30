@@ -8,10 +8,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/database/nodb"
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/database/nodb"
+	"github.com/kukrer/savannahnode/utils"
 )
 
 const (

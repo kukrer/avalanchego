@@ -4,7 +4,7 @@
 package snowball
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/ids"
 )
 
 var (

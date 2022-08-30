@@ -6,10 +6,10 @@ package state
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/hashing"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 )
 
 // toy example of a block, just used for testing

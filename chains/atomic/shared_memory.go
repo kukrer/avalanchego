@@ -4,9 +4,9 @@
 package atomic
 
 import (
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/versiondb"
+	"github.com/kukrer/savannahnode/ids"
 )
 
 var _ SharedMemory = &sharedMemory{}

@@ -11,14 +11,14 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block/mocks"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/snowman"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block/mocks"
+	"github.com/kukrer/savannahnode/snow/validators"
 )
 
 var errUnknownBlock = errors.New("unknown block")

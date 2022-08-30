@@ -10,12 +10,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/api/server"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/vms"
+	"github.com/kukrer/savannahnode/api/server"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/vms"
 )
 
 var _ VMRegisterer = &vmRegisterer{}

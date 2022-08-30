@@ -10,10 +10,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/rpc"
+	"github.com/kukrer/savannahnode/api"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/utils/rpc"
 )
 
 // SuccessResponseTest defines the expected result of an API call that returns SuccessResponse

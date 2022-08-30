@@ -10,8 +10,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/database/versiondb"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/database/versiondb"
 )
 
 func TestState(t *testing.T) {

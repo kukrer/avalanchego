@@ -10,11 +10,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/vms/platformvm/state"
 )
 
 func TestGetBlock(t *testing.T) {

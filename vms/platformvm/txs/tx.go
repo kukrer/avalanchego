@@ -7,14 +7,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/codec"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/utils/crypto"
+	"github.com/kukrer/savannahnode/utils/hashing"
+	"github.com/kukrer/savannahnode/vms/components/avax"
+	"github.com/kukrer/savannahnode/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 var (

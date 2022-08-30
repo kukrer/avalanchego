@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ava-labs/avalanchego/cache"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/kukrer/savannahnode/cache"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 )
 
 const cacheSize = 1000

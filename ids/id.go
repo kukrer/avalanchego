@@ -11,10 +11,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/cb58"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/utils/cb58"
+	"github.com/kukrer/savannahnode/utils/hashing"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 )
 
 const nullStr = "null"

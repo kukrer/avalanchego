@@ -6,9 +6,9 @@ package common
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/engine/common/tracker"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/engine/common/tracker"
+	"github.com/kukrer/savannahnode/snow/validators"
 )
 
 // Config wraps the common configurations that are needed by a Snow consensus

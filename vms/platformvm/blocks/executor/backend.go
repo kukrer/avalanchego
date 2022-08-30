@@ -4,12 +4,12 @@
 package executor
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs/mempool"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/vms/platformvm/state"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs/mempool"
 )
 
 // Shared fields used by visitors.

@@ -13,22 +13,22 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/api/server"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/api/server"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/database/versiondb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/avalanche"
+	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/utils/logging"
 
-	avengmocks "github.com/ava-labs/avalanchego/snow/engine/avalanche/mocks"
-	avvtxmocks "github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex/mocks"
-	smblockmocks "github.com/ava-labs/avalanchego/snow/engine/snowman/block/mocks"
-	smengmocks "github.com/ava-labs/avalanchego/snow/engine/snowman/mocks"
+	avengmocks "github.com/kukrer/savannahnode/snow/engine/avalanche/mocks"
+	avvtxmocks "github.com/kukrer/savannahnode/snow/engine/avalanche/vertex/mocks"
+	smblockmocks "github.com/kukrer/savannahnode/snow/engine/snowman/block/mocks"
+	smengmocks "github.com/kukrer/savannahnode/snow/engine/snowman/mocks"
 )
 
 var _ server.PathAdder = &apiServerMock{}

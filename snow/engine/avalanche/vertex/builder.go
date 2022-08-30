@@ -4,10 +4,10 @@
 package vertex
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/utils/hashing"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/consensus/avalanche"
+	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
+	"github.com/kukrer/savannahnode/utils/hashing"
 )
 
 // Builder builds a vertex given a set of parentIDs and transactions.

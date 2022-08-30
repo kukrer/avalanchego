@@ -14,13 +14,13 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/validators"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/timer"
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/validators"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/utils/timer"
+	"github.com/kukrer/savannahnode/utils/timer/mockable"
 
-	safemath "github.com/ava-labs/avalanchego/utils/math"
+	safemath "github.com/kukrer/savannahnode/utils/math"
 )
 
 var _ heap.Interface = &benchedQueue{}

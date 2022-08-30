@@ -6,8 +6,8 @@ package manager
 import (
 	"sort"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/version"
 )
 
 type VersionedDatabase struct {

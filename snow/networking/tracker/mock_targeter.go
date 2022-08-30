@@ -7,7 +7,7 @@ package tracker
 import (
 	reflect "reflect"
 
-	ids "github.com/ava-labs/avalanchego/ids"
+	ids "github.com/kukrer/savannahnode/ids"
 	gomock "github.com/golang/mock/gomock"
 )
 

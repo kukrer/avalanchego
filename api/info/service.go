@@ -10,19 +10,19 @@ import (
 
 	"github.com/gorilla/rpc/v2"
 
-	"github.com/ava-labs/avalanchego/chains"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/network"
-	"github.com/ava-labs/avalanchego/network/peer"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/networking/benchlist"
-	"github.com/ava-labs/avalanchego/snow/validators"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/ips"
-	"github.com/ava-labs/avalanchego/utils/json"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/version"
-	"github.com/ava-labs/avalanchego/vms"
+	"github.com/kukrer/savannahnode/chains"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/network"
+	"github.com/kukrer/savannahnode/network/peer"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/snow/networking/benchlist"
+	"github.com/kukrer/savannahnode/snow/validators"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/ips"
+	"github.com/kukrer/savannahnode/utils/json"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/version"
+	"github.com/kukrer/savannahnode/vms"
 )
 
 var (

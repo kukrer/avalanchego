@@ -7,14 +7,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
-	"github.com/ava-labs/avalanchego/vms/platformvm/utxo"
+	"github.com/kukrer/savannahnode/chains/atomic"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/vms/components/avax"
+	"github.com/kukrer/savannahnode/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/platformvm/state"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/vms/platformvm/utxo"
 )
 
 var (

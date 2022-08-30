@@ -10,17 +10,17 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/avm/fxs"
-	"github.com/ava-labs/avalanchego/vms/avm/txs"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/nftfx"
-	"github.com/ava-labs/avalanchego/vms/propertyfx"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/crypto"
+	"github.com/kukrer/savannahnode/utils/units"
+	"github.com/kukrer/savannahnode/vms/avm/fxs"
+	"github.com/kukrer/savannahnode/vms/avm/txs"
+	"github.com/kukrer/savannahnode/vms/components/avax"
+	"github.com/kukrer/savannahnode/vms/nftfx"
+	"github.com/kukrer/savannahnode/vms/propertyfx"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 var (

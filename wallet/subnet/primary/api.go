@@ -6,17 +6,17 @@ package primary
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/api/info"
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/rpc"
-	"github.com/ava-labs/avalanchego/vms/avm"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
-	"github.com/ava-labs/avalanchego/wallet/chain/p"
-	"github.com/ava-labs/avalanchego/wallet/chain/x"
+	"github.com/kukrer/savannahnode/api/info"
+	"github.com/kukrer/savannahnode/codec"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/rpc"
+	"github.com/kukrer/savannahnode/vms/avm"
+	"github.com/kukrer/savannahnode/vms/components/avax"
+	"github.com/kukrer/savannahnode/vms/platformvm"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/wallet/chain/p"
+	"github.com/kukrer/savannahnode/wallet/chain/x"
 )
 
 const (

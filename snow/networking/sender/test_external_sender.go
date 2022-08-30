@@ -7,8 +7,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/message"
 )
 
 var (

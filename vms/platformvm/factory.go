@@ -4,9 +4,9 @@
 package platformvm
 
 import (
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/vms"
-	"github.com/ava-labs/avalanchego/vms/platformvm/config"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/vms"
+	"github.com/kukrer/savannahnode/vms/platformvm/config"
 )
 
 var _ vms.Factory = &Factory{}

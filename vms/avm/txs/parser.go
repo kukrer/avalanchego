@@ -8,13 +8,13 @@ import (
 	"math"
 	"reflect"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/codec/linearcodec"
-	"github.com/ava-labs/avalanchego/codec/reflectcodec"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/vms/avm/fxs"
+	"github.com/kukrer/savannahnode/codec"
+	"github.com/kukrer/savannahnode/codec/linearcodec"
+	"github.com/kukrer/savannahnode/codec/reflectcodec"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/utils/timer/mockable"
+	"github.com/kukrer/savannahnode/utils/wrappers"
+	"github.com/kukrer/savannahnode/vms/avm/fxs"
 )
 
 const CodecVersion = 0

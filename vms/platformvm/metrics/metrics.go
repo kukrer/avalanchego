@@ -8,10 +8,10 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/metric"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/metric"
+	"github.com/kukrer/savannahnode/utils/wrappers"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
 )
 
 var _ Metrics = &metrics{}

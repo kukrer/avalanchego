@@ -6,12 +6,12 @@ package txs
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/crypto"
+	"github.com/kukrer/savannahnode/vms/components/avax"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 func TestUnsignedCreateChainTxVerify(t *testing.T) {

@@ -9,14 +9,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
+	"github.com/kukrer/savannahnode/snow/engine/avalanche/vertex"
+	"github.com/kukrer/savannahnode/utils/hashing"
+	"github.com/kukrer/savannahnode/version"
 )
 
 func newTestSerializer(t *testing.T, parse func([]byte) (snowstorm.Tx, error)) *Serializer {

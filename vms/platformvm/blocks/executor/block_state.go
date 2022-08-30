@@ -6,10 +6,10 @@ package executor
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
+	"github.com/kukrer/savannahnode/chains/atomic"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/vms/platformvm/state"
 )
 
 type standardBlockState struct {

@@ -6,7 +6,7 @@ package txheap
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
 )
 
 var _ TimedHeap = &byStartTime{}

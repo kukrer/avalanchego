@@ -4,8 +4,8 @@
 package chains
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/networking/router"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/networking/router"
 )
 
 var _ Manager = MockManager{}

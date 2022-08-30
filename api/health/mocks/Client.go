@@ -5,10 +5,10 @@ package mocks
 import (
 	context "context"
 
-	health "github.com/ava-labs/avalanchego/api/health"
+	health "github.com/kukrer/savannahnode/api/health"
 	mock "github.com/stretchr/testify/mock"
 
-	rpc "github.com/ava-labs/avalanchego/utils/rpc"
+	rpc "github.com/kukrer/savannahnode/utils/rpc"
 
 	time "time"
 )

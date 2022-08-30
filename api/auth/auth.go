@@ -18,10 +18,10 @@ import (
 
 	"github.com/gorilla/rpc/v2"
 
-	"github.com/ava-labs/avalanchego/utils/json"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/password"
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
+	"github.com/kukrer/savannahnode/utils/json"
+	"github.com/kukrer/savannahnode/utils/logging"
+	"github.com/kukrer/savannahnode/utils/password"
+	"github.com/kukrer/savannahnode/utils/timer/mockable"
 )
 
 const (

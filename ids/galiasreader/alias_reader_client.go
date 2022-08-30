@@ -6,9 +6,9 @@ package galiasreader
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/ids"
 
-	aliasreaderpb "github.com/ava-labs/avalanchego/proto/pb/aliasreader"
+	aliasreaderpb "github.com/kukrer/savannahnode/proto/pb/aliasreader"
 )
 
 var _ ids.AliaserReader = &Client{}

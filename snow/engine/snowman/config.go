@@ -4,12 +4,12 @@
 package snowman
 
 import (
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowball"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/consensus/snowball"
+	"github.com/kukrer/savannahnode/snow/consensus/snowman"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block"
+	"github.com/kukrer/savannahnode/snow/validators"
 )
 
 // Config wraps all the parameters needed for a snowman engine

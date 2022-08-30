@@ -7,11 +7,11 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/ava-labs/avalanchego/vms/types"
+	"github.com/kukrer/savannahnode/vms/types"
 
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/utils/units"
+	"github.com/kukrer/savannahnode/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 const (

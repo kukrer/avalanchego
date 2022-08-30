@@ -6,8 +6,8 @@ package tracker
 import (
 	"math"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/validators"
 )
 
 var _ Targeter = &targeter{}

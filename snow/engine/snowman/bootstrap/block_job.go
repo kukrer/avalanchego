@@ -11,12 +11,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/common/queue"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/snowman"
+	"github.com/kukrer/savannahnode/snow/engine/common/queue"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block"
+	"github.com/kukrer/savannahnode/utils/logging"
 )
 
 var errMissingDependenciesOnAccept = errors.New("attempting to accept a block with missing dependencies")

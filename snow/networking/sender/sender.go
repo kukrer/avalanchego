@@ -10,13 +10,13 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/networking/router"
-	"github.com/ava-labs/avalanchego/snow/networking/timeout"
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/message"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/snow/networking/router"
+	"github.com/kukrer/savannahnode/snow/networking/timeout"
+	"github.com/kukrer/savannahnode/utils/constants"
 )
 
 var _ common.Sender = &sender{}

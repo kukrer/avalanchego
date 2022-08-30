@@ -8,13 +8,13 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/vms/platformvm/message"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/crypto"
+	"github.com/kukrer/savannahnode/vms/platformvm/message"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
 
-	txbuilder "github.com/ava-labs/avalanchego/vms/platformvm/txs/builder"
+	txbuilder "github.com/kukrer/savannahnode/vms/platformvm/txs/builder"
 )
 
 func getValidTx(txBuilder txbuilder.Builder, t *testing.T) *txs.Tx {

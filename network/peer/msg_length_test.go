@@ -8,7 +8,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/kukrer/savannahnode/utils/constants"
 )
 
 func TestMsgLen(t *testing.T) {

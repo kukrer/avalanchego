@@ -8,12 +8,12 @@ import (
 	reflect "reflect"
 	time "time"
 
-	manager "github.com/ava-labs/avalanchego/database/manager"
-	ids "github.com/ava-labs/avalanchego/ids"
-	snow "github.com/ava-labs/avalanchego/snow"
-	snowman "github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	common "github.com/ava-labs/avalanchego/snow/engine/common"
-	version "github.com/ava-labs/avalanchego/version"
+	manager "github.com/kukrer/savannahnode/database/manager"
+	ids "github.com/kukrer/savannahnode/ids"
+	snow "github.com/kukrer/savannahnode/snow"
+	snowman "github.com/kukrer/savannahnode/snow/consensus/snowman"
+	common "github.com/kukrer/savannahnode/snow/engine/common"
+	version "github.com/kukrer/savannahnode/version"
 	gomock "github.com/golang/mock/gomock"
 )
 

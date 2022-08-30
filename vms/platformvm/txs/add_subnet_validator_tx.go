@@ -6,10 +6,10 @@ package txs
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/platformvm/validator"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/platformvm/validator"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 var (

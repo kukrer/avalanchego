@@ -14,8 +14,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/utils/bloom"
-)
+	"github.com/kukrer/savannahnode/utils/bloom"
 
 var (
 	ErrFilterNotInitialized        = errors.New("filter not initialized")

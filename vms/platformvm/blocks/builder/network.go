@@ -11,12 +11,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/cache"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/vms/platformvm/message"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/cache"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/vms/platformvm/message"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
 )
 
 const (

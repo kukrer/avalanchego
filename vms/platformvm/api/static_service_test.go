@@ -6,12 +6,12 @@ package api
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/utils/formatting/address"
-	"github.com/ava-labs/avalanchego/utils/json"
-	"github.com/ava-labs/avalanchego/vms/platformvm/genesis"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/constants"
+	"github.com/kukrer/savannahnode/utils/formatting"
+	"github.com/kukrer/savannahnode/utils/formatting/address"
+	"github.com/kukrer/savannahnode/utils/json"
+	"github.com/kukrer/savannahnode/vms/platformvm/genesis"
 )
 
 const testNetworkID = 10 // To be used in tests

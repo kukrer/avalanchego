@@ -6,7 +6,7 @@ package cache
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/ids"
 )
 
 type evictable struct {

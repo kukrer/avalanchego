@@ -10,14 +10,14 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/api/server"
-	"github.com/ava-labs/avalanchego/chains"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/ipcs"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils/json"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/api"
+	"github.com/kukrer/savannahnode/api/server"
+	"github.com/kukrer/savannahnode/chains"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/ipcs"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/utils/json"
+	"github.com/kukrer/savannahnode/utils/logging"
 )
 
 // IPCServer maintains the IPCs

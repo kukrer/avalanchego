@@ -1,4 +1,4 @@
-module github.com/ava-labs/avalanchego
+module github.com/kukrer/savannahnode
 
 // Changes to the minimum golang version must also be replicated in
 // scripts/build_avalanche.sh
@@ -127,3 +127,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/kukrer/coreth => ../coreth

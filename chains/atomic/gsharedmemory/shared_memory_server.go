@@ -7,11 +7,11 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/chains/atomic"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/ids"
 
-	sharedmemorypb "github.com/ava-labs/avalanchego/proto/pb/sharedmemory"
+	sharedmemorypb "github.com/kukrer/savannahnode/proto/pb/sharedmemory"
 )
 
 var _ sharedmemorypb.SharedMemoryServer = &Server{}

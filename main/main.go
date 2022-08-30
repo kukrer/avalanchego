@@ -10,9 +10,9 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/ava-labs/avalanchego/app/runner"
-	"github.com/ava-labs/avalanchego/config"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/kukrer/savannahnode/app/runner"
+	"github.com/kukrer/savannahnode/config"
+	"github.com/kukrer/savannahnode/version"
 )
 
 func main() {

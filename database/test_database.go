@@ -12,8 +12,8 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/utils/units"
 )
 
 // Tests is a list of all database tests

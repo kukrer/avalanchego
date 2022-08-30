@@ -10,20 +10,20 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils/timer"
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs/mempool"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/consensus/snowman"
+	"github.com/kukrer/savannahnode/snow/engine/common"
+	"github.com/kukrer/savannahnode/utils/timer"
+	"github.com/kukrer/savannahnode/utils/timer/mockable"
+	"github.com/kukrer/savannahnode/utils/units"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/vms/platformvm/state"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs"
+	"github.com/kukrer/savannahnode/vms/platformvm/txs/mempool"
 
-	blockexecutor "github.com/ava-labs/avalanchego/vms/platformvm/blocks/executor"
-	txbuilder "github.com/ava-labs/avalanchego/vms/platformvm/txs/builder"
-	txexecutor "github.com/ava-labs/avalanchego/vms/platformvm/txs/executor"
+	blockexecutor "github.com/kukrer/savannahnode/vms/platformvm/blocks/executor"
+	txbuilder "github.com/kukrer/savannahnode/vms/platformvm/txs/builder"
+	txexecutor "github.com/kukrer/savannahnode/vms/platformvm/txs/executor"
 )
 
 // targetBlockSize is maximum number of transaction bytes to place into a

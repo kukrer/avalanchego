@@ -6,8 +6,8 @@ package executor
 import (
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/vms/platformvm/blocks"
 )
 
 var _ blocks.Visitor = &rejector{}

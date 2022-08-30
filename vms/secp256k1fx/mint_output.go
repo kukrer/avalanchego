@@ -4,7 +4,7 @@
 package secp256k1fx
 
 import (
-	"github.com/ava-labs/avalanchego/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/components/verify"
 )
 
 var _ verify.State = &MintOutput{}

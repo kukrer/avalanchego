@@ -17,8 +17,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/chains"
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/kukrer/savannahnode/chains"
+	"github.com/kukrer/savannahnode/ids"
 )
 
 func TestGetChainConfigsFromFiles(t *testing.T) {

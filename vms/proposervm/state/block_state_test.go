@@ -12,12 +12,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/staking"
-	"github.com/ava-labs/avalanchego/vms/proposervm/block"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/memdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/staking"
+	"github.com/kukrer/savannahnode/vms/proposervm/block"
 )
 
 func testBlockState(a *require.Assertions, bs BlockState) {

@@ -8,10 +8,10 @@ import (
 	reflect "reflect"
 	time "time"
 
-	ids "github.com/ava-labs/avalanchego/ids"
-	avax "github.com/ava-labs/avalanchego/vms/components/avax"
-	status "github.com/ava-labs/avalanchego/vms/platformvm/status"
-	txs "github.com/ava-labs/avalanchego/vms/platformvm/txs"
+	ids "github.com/kukrer/savannahnode/ids"
+	avax "github.com/kukrer/savannahnode/vms/components/avax"
+	status "github.com/kukrer/savannahnode/vms/platformvm/status"
+	txs "github.com/kukrer/savannahnode/vms/platformvm/txs"
 	gomock "github.com/golang/mock/gomock"
 )
 

@@ -11,8 +11,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/staking"
-	"github.com/ava-labs/avalanchego/utils/ips"
+	"github.com/kukrer/savannahnode/staking"
+	"github.com/kukrer/savannahnode/utils/ips"
 )
 
 const (

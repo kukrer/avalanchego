@@ -6,9 +6,9 @@ package propertyfx
 import (
 	"errors"
 
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/vms/components/verify"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 var errNilMintOperation = errors.New("nil mint operation")

@@ -12,12 +12,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/metric"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-)
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/message"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/utils/metric"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 
 const (
 	defaultRequestHelpMsg = "time (in ns) spent waiting for a response to this message"

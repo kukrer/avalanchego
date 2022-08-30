@@ -11,12 +11,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
-	"github.com/ava-labs/avalanchego/snow/engine/common/queue"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/choices"
+	"github.com/kukrer/savannahnode/snow/consensus/snowstorm"
+	"github.com/kukrer/savannahnode/snow/engine/avalanche/vertex"
+	"github.com/kukrer/savannahnode/snow/engine/common/queue"
+	"github.com/kukrer/savannahnode/utils/logging"
 )
 
 var errMissingTxDependenciesOnAccept = errors.New("attempting to accept a transaction with missing dependencies")

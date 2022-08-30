@@ -4,9 +4,9 @@
 package snowstorm
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/events"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/snow/events"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 )
 
 var _ events.Blockable = &acceptor{}

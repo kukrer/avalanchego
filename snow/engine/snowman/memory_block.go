@@ -4,7 +4,7 @@
 package snowman
 
 import (
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
+	"github.com/kukrer/savannahnode/snow/consensus/snowman"
 )
 
 // memoryBlock wraps a snowman Block to manage non-verified blocks

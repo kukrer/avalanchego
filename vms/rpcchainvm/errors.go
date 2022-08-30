@@ -4,8 +4,8 @@
 package rpcchainvm
 
 import (
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block"
 )
 
 var (

@@ -7,12 +7,12 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/ava-labs/avalanchego/api/keystore"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/encdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/api/keystore"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/encdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/crypto"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 // Max number of addresses allowed for a single keystore user

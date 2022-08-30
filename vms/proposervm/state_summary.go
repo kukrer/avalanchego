@@ -4,8 +4,8 @@
 package proposervm
 
 import (
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/vms/proposervm/summary"
+	"github.com/kukrer/savannahnode/snow/engine/snowman/block"
+	"github.com/kukrer/savannahnode/vms/proposervm/summary"
 )
 
 var _ block.StateSummary = &stateSummary{}

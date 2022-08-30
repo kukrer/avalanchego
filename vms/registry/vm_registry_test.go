@@ -10,8 +10,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/vms"
 )
 
 var (

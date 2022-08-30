@@ -8,13 +8,13 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/ava-labs/avalanchego/api/health"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/snow/networking/benchlist"
-	"github.com/ava-labs/avalanchego/snow/networking/handler"
-	"github.com/ava-labs/avalanchego/snow/networking/timeout"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/api/health"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/message"
+	"github.com/kukrer/savannahnode/snow/networking/benchlist"
+	"github.com/kukrer/savannahnode/snow/networking/handler"
+	"github.com/kukrer/savannahnode/snow/networking/timeout"
+	"github.com/kukrer/savannahnode/utils/logging"
 )
 
 // Router routes consensus messages to the Handler of the consensus

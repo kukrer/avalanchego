@@ -6,10 +6,10 @@ package keystore
 import (
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/encdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/kukrer/savannahnode/database"
+	"github.com/kukrer/savannahnode/database/encdb"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/logging"
 )
 
 var _ BlockchainKeystore = &blockchainKeystore{}

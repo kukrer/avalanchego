@@ -8,9 +8,9 @@ import (
 	"crypto/rand"
 	"crypto/x509"
 
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/utils/ips"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/kukrer/savannahnode/utils/hashing"
+	"github.com/kukrer/savannahnode/utils/ips"
+	"github.com/kukrer/savannahnode/utils/wrappers"
 )
 
 // UnsignedIP is used for a validator to claim an IP. The [Timestamp] is used to

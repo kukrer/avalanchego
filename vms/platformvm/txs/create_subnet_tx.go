@@ -4,9 +4,9 @@
 package txs
 
 import (
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/vms/platformvm/fx"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/kukrer/savannahnode/snow"
+	"github.com/kukrer/savannahnode/vms/platformvm/fx"
+	"github.com/kukrer/savannahnode/vms/secp256k1fx"
 )
 
 var (

@@ -7,8 +7,8 @@ package blocks
 import (
 	reflect "reflect"
 
-	ids "github.com/ava-labs/avalanchego/ids"
-	txs "github.com/ava-labs/avalanchego/vms/platformvm/txs"
+	ids "github.com/kukrer/savannahnode/ids"
+	txs "github.com/kukrer/savannahnode/vms/platformvm/txs"
 	gomock "github.com/golang/mock/gomock"
 )
 

@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
+	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils"
+	"github.com/kukrer/savannahnode/vms/components/verify"
 )
 
 var (
