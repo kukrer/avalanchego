@@ -14,7 +14,7 @@ FROM golang:1.18.5-buster
 RUN mkdir -p /go/src/github.com/kukrer
 
 WORKDIR $GOPATH/src/github.com/kukrer
-COPY avalanchego avalanchego
+COPY savannahnode savannahnode
 COPY coreth coreth
 
 WORKDIR $GOPATH/src/github.com/kukrer/savannahnode
