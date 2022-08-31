@@ -86,7 +86,7 @@ func GetRunnerConfig(v *viper.Viper) (runner.Config, error) {
 	// Build directory should have this structure:
 	//
 	// build
-	// ├── avalanchego (the binary from compiling the app directory)
+	// ├── savannahnode (the binary from compiling the app directory)
 	// └── plugins
 	//     └── evm
 	validBuildDir := func(dir string) bool {

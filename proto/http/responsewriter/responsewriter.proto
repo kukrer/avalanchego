@@ -47,7 +47,7 @@ message WriteHeaderRequest {
 
 message HijackResponse {
   // reserved for backward compatibility
-  // avalanchego <=v1.7.9 used the fields "1, 6, 7, 8" as an id to
+  // savannahnode <=v1.7.9 used the fields "1, 6, 7, 8" as an id to
   // identify the gRPC server address which served the Conn, Reader
   // and Writer services via the now removed service broker
   reserved 1, 6 to 8;

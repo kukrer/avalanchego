@@ -6,7 +6,7 @@ set -o pipefail
 
 echo "Building docker image based off of most recent local commits of savannahnode and coreth"
 
-AVALANCHE_REMOTE="git@github.com:kukrer/savannahnode.git"
+SAVANNAHNODE_REMOTE="git@github.com:kukrer/savannahnode.git"
 CORETH_REMOTE="git@github.com:kukrer/coreth.git"
 DOCKERHUB_REPO="savannahlabs/savannahnode"
 
@@ -21,7 +21,7 @@ export GOPATH="$SCRIPT_DIRPATH/.build_image_gopath"
 WORKPREFIX="$GOPATH/src/github.com/kukrer"
 
 # Clone the remotes and checkout the desired branch/commits
-AVALANCHE_CLONE="$WORKPREFIX/savannahnode"
+SAVANNAHNODE_CLONE="$WORKPREFIX/savannahnode"
 CORETH_CLONE="$WORKPREFIX/coreth"
 
 # Replace the WORKPREFIX directory
@@ -29,17 +29,17 @@ rm -rf "$WORKPREFIX"
 mkdir -p "$WORKPREFIX"
 
 
-AVALANCHE_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/savannahnode" rev-parse --short HEAD)"
+SAVANNAHNODE_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/savannahnode" rev-parse --short HEAD)"
 CORETH_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/coreth" rev-parse --short HEAD)"
 
 git config --global credential.helper cache
 
-git clone "$AVALANCHE_REMOTE" "$AVALANCHE_CLONE"
-git -C "$AVALANCHE_CLONE" checkout "$AVALANCHE_COMMIT_HASH"
+git clone "$SAVANNAHNODE_REMOTE" "$SAVANNAHNODE_CLONE"
+git -C "$SAVANNAHNODE_CLONE" checkout "$SAVANNAHNODE_COMMIT_HASH"
 
 git clone "$CORETH_REMOTE" "$CORETH_CLONE"
 git -C "$CORETH_CLONE" checkout "$CORETH_COMMIT_HASH"
 
-CONCATENATED_HASHES="$AVALANCHE_COMMIT_HASH-$CORETH_COMMIT_HASH"
+CONCATENATED_HASHES="$SAVANNAHNODE_COMMIT_HASH-$CORETH_COMMIT_HASH"
 
 "$DOCKER" build -t "$DOCKERHUB_REPO:$CONCATENATED_HASHES" "$WORKPREFIX" -f "$SCRIPT_DIRPATH/local.Dockerfile"

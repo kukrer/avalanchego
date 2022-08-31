@@ -28,13 +28,13 @@ const (
 	DefaultHTTPPort    = 9650
 	DefaultStakingPort = 9651
 
-	AvalancheGoDataDirVar    = "AVALANCHEGO_DATA_DIR"
-	defaultUnexpandedDataDir = "$" + AvalancheGoDataDirVar
+	savannahnodeDataDirVar    = "savannahnode_DATA_DIR"
+	defaultUnexpandedDataDir = "$" + savannahnodeDataDirVar
 )
 
 var (
 	// [defaultUnexpandedDataDir] will be expanded when reading the flags
-	defaultDataDir         = filepath.Join("$HOME", ".avalanchego")
+	defaultDataDir         = filepath.Join("$HOME", ".savannahnode")
 	defaultDBDir           = filepath.Join(defaultUnexpandedDataDir, "db")
 	defaultLogDir          = filepath.Join(defaultUnexpandedDataDir, "logs")
 	defaultProfileDir      = filepath.Join(defaultUnexpandedDataDir, "profiles")
@@ -352,7 +352,7 @@ func addNodeFlags(fs *flag.FlagSet) {
 	fs.Float64(DiskMaxNonVdrNodeUsageKey, 1000*units.GiB, "Maximum number of disk reads/writes per second that a non-validator can utilize. Must be >= 0")
 }
 
-// BuildFlagSet returns a complete set of flags for avalanchego
+// BuildFlagSet returns a complete set of flags for savannahnode
 func BuildFlagSet() *flag.FlagSet {
 	// TODO parse directly into a *pflag.FlagSet instead of into a *flag.FlagSet
 	// and then putting those into a *plag.FlagSet
@@ -363,7 +363,7 @@ func BuildFlagSet() *flag.FlagSet {
 }
 
 // GetExpandedArg gets the string in viper corresponding to [key] and expands
-// any variables using the OS env. If the [AvalancheGoDataDirVar] var is used,
+// any variables using the OS env. If the [savannahnodeDataDirVar] var is used,
 // we expand the value of the variable with the string in viper corresponding to
 // [DataDirKey].
 func GetExpandedArg(v *viper.Viper, key string) string {
@@ -371,13 +371,13 @@ func GetExpandedArg(v *viper.Viper, key string) string {
 }
 
 // GetExpandedString expands [s] with any variables using the OS env. If the
-// [AvalancheGoDataDirVar] var is used, we expand the value of the variable with
+// [savannahnodeDataDirVar] var is used, we expand the value of the variable with
 // the string in viper corresponding to [DataDirKey].
 func GetExpandedString(v *viper.Viper, s string) string {
 	return os.Expand(
 		s,
 		func(strVar string) string {
-			if strVar == AvalancheGoDataDirVar {
+			if strVar == savannahnodeDataDirVar {
 				return os.ExpandEnv(v.GetString(DataDirKey))
 			}
 			return os.Getenv(strVar)

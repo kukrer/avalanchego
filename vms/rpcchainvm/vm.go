@@ -17,7 +17,7 @@ import (
 )
 
 // protocolVersion should be bumped anytime changes are made which require
-// the plugin vm to upgrade to latest avalanchego release to be compatible.
+// the plugin vm to upgrade to latest savannahnode release to be compatible.
 const protocolVersion = 15
 
 var (

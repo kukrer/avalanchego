@@ -5,13 +5,13 @@ set -o nounset
 set -o pipefail
 
 # Directory above this script
-AVALANCHE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
-echo AVALANCHE_PATH= $AVALANCHE_PATH
+SAVANNAHNODE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
+
 # Load the versions
-source "$AVALANCHE_PATH"/scripts/versions.sh
+source "$SAVANNAHNODE_PATH"/scripts/versions.sh
 
 # Load the constants
-source "$AVALANCHE_PATH"/scripts/constants.sh
+source "$SAVANNAHNODE_PATH"/scripts/constants.sh
 
 # check if there's args defining different coreth source and build paths
 if [[ $# -eq 2 ]]; then
@@ -30,7 +30,7 @@ fi
 echo "Building Coreth @ ${coreth_version} ..."
 cd "$coreth_path"
 go build -ldflags "-X github.com/kukrer/coreth/plugin/evm.Version=$coreth_version $static_ld_flags" -o "$evm_path" "plugin/"*.go
-cd "$AVALANCHE_PATH"
+cd "$SAVANNAHNODE_PATH"
 
 # Building coreth + using go get can mess with the go.mod file.
 go mod tidy -compat=1.18

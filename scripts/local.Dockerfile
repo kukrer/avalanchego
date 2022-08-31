@@ -4,7 +4,7 @@
 # in order to build an image using the local version of coreth
 
 # Changes to the minimum golang version must also be replicated in
-# scripts/build_avalanche.sh
+# scripts/build_savannahnode.sh
 # scripts/local.Dockerfile (here)
 # Dockerfile
 # README.md
@@ -18,7 +18,7 @@ COPY savannahnode savannahnode
 COPY coreth coreth
 
 WORKDIR $GOPATH/src/github.com/kukrer/savannahnode
-RUN ./scripts/build_avalanche.sh
+RUN ./scripts/build_savannahnode.sh
 RUN ./scripts/build_coreth.sh ../coreth $PWD/build/plugins/evm
 
 RUN ln -sv $GOPATH/src/github.com/kukrer/savannahnode-byzantine/ /savannahnonde

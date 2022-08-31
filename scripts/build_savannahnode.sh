@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 # Changes to the minimum golang version must also be replicated in
-# scripts/build_avalanche.sh (here)
+# scripts/build_savannahnode.sh (here)
 # scripts/local.Dockerfile
 # Dockerfile
 # README.md
@@ -34,11 +34,11 @@ if version_lt "$(go_version)" "$go_version_minimum"; then
 fi
 
 # Savnnahnode root folder
-AVALANCHE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
+SAVANNAHNODE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
 # Load the versions
-source "$AVALANCHE_PATH"/scripts/versions.sh
+source "$SAVANNAHNODE_PATH"/scripts/versions.sh
 # Load the constants
-source "$AVALANCHE_PATH"/scripts/constants.sh
+source "$SAVANNAHNODE_PATH"/scripts/constants.sh
 
 echo "Building Savannahnode..."
-go build -ldflags "-X github.com/kukrer/savannahnode/version.GitCommit=$git_commit $static_ld_flags" -o "$avalanchego_path" "$AVALANCHE_PATH/main/"*.go
+go build -ldflags "-X github.com/kukrer/savannahnode/version.GitCommit=$git_commit $static_ld_flags" -o "$savannahnode_path" "$SAVANNAHNODE_PATH/main/"*.go

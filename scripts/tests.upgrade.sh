@@ -3,7 +3,7 @@ set -e
 
 # e.g.,
 # ./scripts/build.sh
-# ./scripts/tests.upgrade.sh 1.7.16 ./build/avalanchego
+# ./scripts/tests.upgrade.sh 1.7.16 ./build/savannahnode
 if ! [[ "$0" =~ scripts/tests.upgrade.sh ]]; then
   echo "must be run from repository root"
   exit 255
@@ -24,12 +24,12 @@ if [[ -z "${NEW_BINARY}" ]]; then
 fi
 
 #################################
-# download avalanchego
+# download savannahnode
 # https://github.com/kukrer/savannahnode/releases
 GOARCH=$(go env GOARCH)
 GOOS=$(go env GOOS)
 DOWNLOAD_URL=https://github.com/kukrer/savannahnode/releases/download/v${VERSION}/savannahnode-linux-${GOARCH}-v${VERSION}.tar.gz
-DOWNLOAD_PATH=/tmp/avalanchego.tar.gz
+DOWNLOAD_PATH=/tmp/savannahnode.tar.gz
 if [[ ${GOOS} == "darwin" ]]; then
   DOWNLOAD_URL=https://github.com/kukrer/savannahnode/releases/download/v${VERSION}/savannahnode-macos-v${VERSION}.zip
   DOWNLOAD_PATH=/tmp/savannahnode.zip

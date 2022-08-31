@@ -20,9 +20,9 @@ import (
 	appplugin "github.com/kukrer/savannahnode/app/plugin"
 )
 
-// Run an AvalancheGo node.
+// Run a Savannnahnode.
 // If specified in the config, serves a hashicorp plugin that can be consumed by
-// the daemon (see avalanchego/main).
+// the daemon (see savannahnode/main).
 func Run(config Config, nodeConfig node.Config) {
 	nodeApp := process.NewApp(nodeConfig) // Create node wrapper
 	if config.PluginMode {                // Serve as a plugin

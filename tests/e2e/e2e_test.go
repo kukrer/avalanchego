@@ -36,8 +36,8 @@ var (
 	logLevel string
 
 	networkRunnerGRPCEp              string
-	networkRunnerAvalancheGoExecPath string
-	networkRunnerAvalancheGoLogLevel string
+	networkRunnersavannahnodeExecPath string
+	networkRunnersavannahnodeLogLevel string
 
 	uris string
 
@@ -62,16 +62,16 @@ func init() {
 		"[optional] gRPC server endpoint for network-runner (only required for local network-runner tests)",
 	)
 	flag.StringVar(
-		&networkRunnerAvalancheGoExecPath,
-		"network-runner-avalanchego-path",
+		&networkRunnersavannahnodeExecPath,
+		"network-runner-savannahnode-path",
 		"",
-		"[optional] avalanchego executable path (only required for local network-runner tests)",
+		"[optional] savannahnode executable path (only required for local network-runner tests)",
 	)
 	flag.StringVar(
-		&networkRunnerAvalancheGoLogLevel,
-		"network-runner-avalanchego-log-level",
+		&networkRunnersavannahnodeLogLevel,
+		"network-runner-savannahnode-log-level",
 		"INFO",
-		"[optional] avalanchego log-level (only required for local network-runner tests)",
+		"[optional] savannahnode log-level (only required for local network-runner tests)",
 	)
 
 	// e.g., custom network HTTP RPC endpoints
@@ -101,8 +101,8 @@ func init() {
 var _ = ginkgo.BeforeSuite(func() {
 	e2e.SetEnableWhitelistTxTests(enableWhitelistTxTests)
 
-	if networkRunnerAvalancheGoExecPath != "" {
-		_, err := os.Stat(networkRunnerAvalancheGoExecPath)
+	if networkRunnersavannahnodeExecPath != "" {
+		_, err := os.Stat(networkRunnersavannahnodeExecPath)
 		gomega.Expect(err).Should(gomega.BeNil())
 	}
 
@@ -119,11 +119,11 @@ var _ = ginkgo.BeforeSuite(func() {
 		gomega.Expect(err).Should(gomega.BeNil())
 		tests.Outf("{{green}}network-runner running in PID %d{{/}}\n", presp.Pid)
 
-		tests.Outf("{{magenta}}starting network-runner with %q{{/}}\n", networkRunnerAvalancheGoExecPath)
+		tests.Outf("{{magenta}}starting network-runner with %q{{/}}\n", networkRunnersavannahnodeExecPath)
 		ctx, cancel = context.WithTimeout(context.Background(), 15*time.Second)
-		resp, err := runnerCli.Start(ctx, networkRunnerAvalancheGoExecPath,
+		resp, err := runnerCli.Start(ctx, networkRunnersavannahnodeExecPath,
 			runner_sdk.WithNumNodes(5),
-			runner_sdk.WithGlobalNodeConfig(fmt.Sprintf(`{"log-level":"%s"}`, networkRunnerAvalancheGoLogLevel)),
+			runner_sdk.WithGlobalNodeConfig(fmt.Sprintf(`{"log-level":"%s"}`, networkRunnersavannahnodeLogLevel)),
 		)
 		cancel()
 		gomega.Expect(err).Should(gomega.BeNil())
