@@ -9,6 +9,7 @@ import (
 
 	"github.com/kukrer/savannahnode/api"
 	"github.com/kukrer/savannahnode/ids"
+	"github.com/kukrer/savannahnode/utils/logging"
 	"github.com/kukrer/savannahnode/utils/rpc"
 )
 

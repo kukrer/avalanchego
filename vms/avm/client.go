@@ -16,6 +16,8 @@ import (
 	"github.com/kukrer/savannahnode/utils/formatting"
 	"github.com/kukrer/savannahnode/utils/formatting/address"
 	"github.com/kukrer/savannahnode/utils/rpc"
+
+	cjson "github.com/kukrer/savannahnode/utils/json"
 )
 
 var _ Client = &client{}
