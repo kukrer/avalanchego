@@ -43,7 +43,7 @@ require (
 	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde
 	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9
-	gonum.org/v1/gonum v0.11.0
+	gonum.org/v1/gonum v0.12.0
 	google.golang.org/genproto v0.0.0-20220829175752-36a9c930ecbf
 	google.golang.org/grpc v1.49.0
 	google.golang.org/protobuf v1.28.1
