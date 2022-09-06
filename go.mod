@@ -34,7 +34,7 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/spf13/pflag v1.0.5
-	github.com/spf13/viper v1.12.0
+	github.com/spf13/viper v1.13.0
 	github.com/stretchr/testify v1.8.0
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a
 	go.uber.org/zap v1.23.0
@@ -96,7 +96,7 @@ require (
 	github.com/oklog/run v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
-	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/common v0.37.0 // indirect
@@ -108,7 +108,7 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/status-im/keycard-go v0.0.0-20220804094519-059bc140cef1 // indirect
 	github.com/stretchr/objx v0.4.0 // indirect
-	github.com/subosito/gotenv v1.3.0 // indirect
+	github.com/subosito/gotenv v1.4.1 // indirect
 	github.com/tklauser/go-sysconf v0.3.5 // indirect
 	github.com/tklauser/numcpus v0.2.2 // indirect
 	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
@@ -117,7 +117,7 @@ require (
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/sys v0.0.0-20220829200755-d48e67d00261 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gopkg.in/ini.v1 v1.66.4 // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/urfave/cli.v1 v1.20.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
