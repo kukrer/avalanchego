@@ -26,8 +26,8 @@ require (
 	github.com/kukrer/coreth v0.8.17
 	github.com/mr-tron/base58 v1.2.0
 	github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354
-	github.com/onsi/ginkgo/v2 v2.1.5
-	github.com/onsi/gomega v1.20.1
+	github.com/onsi/ginkgo/v2 v2.3.0
+	github.com/onsi/gomega v1.22.1
 	github.com/prometheus/client_golang v1.13.0
 	github.com/prometheus/client_model v0.2.0
 	github.com/rs/cors v1.8.2
