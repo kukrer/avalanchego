@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/Microsoft/go-winio v0.5.2
 	github.com/NYTimes/gziphandler v1.1.1
-	github.com/ava-labs/avalanche-network-runner-sdk v0.1.0
+	github.com/ava-labs/avalanche-network-runner-sdk v0.3.0
 	github.com/btcsuite/btcd v0.23.1
 	github.com/btcsuite/btcd/btcutil v1.1.2
 	github.com/decred/dcrd/dcrec/secp256k1/v3 v3.0.0
@@ -26,8 +26,8 @@ require (
 	github.com/kukrer/coreth v0.8.17
 	github.com/mr-tron/base58 v1.2.0
 	github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354
-	github.com/onsi/ginkgo/v2 v2.1.5
-	github.com/onsi/gomega v1.20.1
+	github.com/onsi/ginkgo/v2 v2.4.0
+	github.com/onsi/gomega v1.22.1
 	github.com/prometheus/client_golang v1.13.0
 	github.com/prometheus/client_model v0.2.0
 	github.com/rs/cors v1.8.2
@@ -39,13 +39,13 @@ require (
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a
 	go.uber.org/zap v1.23.0
 	golang.org/x/crypto v0.0.0-20220829220503-c86fa9a7ed90
-	golang.org/x/net v0.0.0-20220826154423-83b083e8dc8b
+	golang.org/x/net v0.1.0
 	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde
-	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035
+	golang.org/x/term v0.1.0
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9
 	gonum.org/v1/gonum v0.11.0
-	google.golang.org/genproto v0.0.0-20220829175752-36a9c930ecbf
-	google.golang.org/grpc v1.49.0
+	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c
+	google.golang.org/grpc v1.50.1
 	google.golang.org/protobuf v1.28.1
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )
@@ -71,6 +71,7 @@ require (
 	github.com/fjl/memsize v0.0.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gballet/go-libpcsclite v0.0.0-20191108122812-4678299bea08 // indirect
+	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -113,10 +114,10 @@ require (
 	github.com/tklauser/numcpus v0.2.2 // indirect
 	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/sys v0.0.0-20220829200755-d48e67d00261 // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/text v0.4.0 // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/urfave/cli.v1 v1.20.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
